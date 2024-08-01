@@ -17,15 +17,20 @@ import { Button } from './ui/button'
 import { ImagePlus } from 'lucide-react'
 // import { toast } from 'sonner'
 
-export const ImageUploader: React.FC = () => {
-  const [preview, setPreview] = React.useState<string | ArrayBuffer | null>('')
+const formSchema = z.object({
+  image: z
+    //Rest of validations done via react dropzone
+    .instanceof(File)
+    .refine((file) => file.size !== 0, 'Please upload an image'),
+})
 
-  const formSchema = z.object({
-    image: z
-      //Rest of validations done via react dropzone
-      .instanceof(File)
-      .refine((file) => file.size !== 0, 'Please upload an image'),
-  })
+interface Props {
+  loading: boolean
+  onSubmit: (values: z.infer<typeof formSchema>) => void
+}
+
+export const ImageUploader: React.FC<Props> = ({ loading, onSubmit }) => {
+  const [preview, setPreview] = React.useState<string | ArrayBuffer | null>('')
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -59,17 +64,19 @@ export const ImageUploader: React.FC = () => {
       accept: { 'image/png': [], 'image/jpg': [], 'image/jpeg': [] },
     })
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
+  const handleSubmit = (values: z.infer<typeof formSchema>) => {
     console.log(values)
     // toast.success(`Image uploaded successfully 🎉 ${values.image.name}`)
+    onSubmit(values)
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
         <FormField
           control={form.control}
           name="image"
+          disabled={loading}
           render={() => (
             <FormItem className="mx-auto">
               <FormLabel
@@ -104,7 +111,7 @@ export const ImageUploader: React.FC = () => {
                   <ImagePlus
                     className={`h-40 w-40 ${preview ? 'hidden' : 'block'}`}
                   />
-                  <Input {...getInputProps()} type="file" />
+                  <Input disabled={loading} {...getInputProps()} type="file" />
                   {isDragActive ? (
                     <p>Drop the image!</p>
                   ) : (
@@ -124,7 +131,7 @@ export const ImageUploader: React.FC = () => {
         />
         <Button
           type="submit"
-          disabled={form.formState.isSubmitting}
+          disabled={form.formState.isSubmitting || loading}
           className="mx-auto block h-auto rounded-lg px-8 py-3 text-xl"
         >
           Submit

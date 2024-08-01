@@ -6,6 +6,7 @@ import './globals.css'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import ReactQueryProvider from '@/providers/ReactQueryProvider'
 import { SidebarMenu } from '@/components/Sidebar'
+import { Toaster } from '@/components/ui/sonner'
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -38,6 +39,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ReactQueryProvider>
+            <Toaster />
             <div className="flex">
               <div className="hidden sm:block">
                 <SidebarMenu />

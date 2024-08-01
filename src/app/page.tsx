@@ -9,7 +9,7 @@ export default async function Index() {
           <Card text="Detect Stroke using MRI Brain Image Scan" />
         </Link>
 
-        <p className="mx-4">OR</p>
+        <p className="mx-4 text-2xl">OR</p>
 
         <Link href="/detect-stroke/questionnaire">
           <Card text="Detect Stroke using Health Questionnaire" />
