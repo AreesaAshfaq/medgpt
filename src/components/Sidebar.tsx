@@ -38,7 +38,7 @@ export function SidebarMenu() {
     {
       label: '',
       name: 'Detect Stroke',
-      icon: <MagnifyingGlassIcon size={15} className="mr-2" />,
+      icon: <MagnifyingGlassIcon className="mr-2" />,
       href: '/',
     },
     {
