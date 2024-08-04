@@ -31,6 +31,7 @@ export default function ChatBottombar({
         id: message.length + 1,
         name: loggedInUserData.name,
         avatar: loggedInUserData.avatar,
+        role: 'user',
         message: message.trim(),
       }
       sendMessage(newMessage)

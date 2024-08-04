@@ -1,10 +1,10 @@
 'use client'
 
-import { userData } from '@/app/data'
+import { Message, userData } from '@/app/data'
 import React, { useEffect, useState } from 'react'
-import { Chat } from './chat'
+import { Chat } from './Chat'
 
-export function ChatLayout() {
+export function ChatLayout({ messages }: { messages: Message[] }) {
   const [selectedUser, setSelectedUser] = React.useState(userData[0])
   const [isMobile, setIsMobile] = useState(false)
 
@@ -26,10 +26,6 @@ export function ChatLayout() {
   }, [])
 
   return (
-    <Chat
-      messages={selectedUser.messages}
-      selectedUser={selectedUser}
-      isMobile={isMobile}
-    />
+    <Chat messages={messages} selectedUser={selectedUser} isMobile={isMobile} />
   )
 }

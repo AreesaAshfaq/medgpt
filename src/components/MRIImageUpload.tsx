@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { ImageUploader } from '@/components/ImageUploader'
-import { getImagePrediction } from '@/utils/api'
+import { getImagePrediction } from '@/utils/image-detect-api'
 import { toast } from 'sonner'
 
 const MRIImageUpload = () => {

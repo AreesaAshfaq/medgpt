@@ -14,7 +14,6 @@ import {
   Settings,
   SquareStack,
   SearchIcon,
-  User,
 } from 'lucide-react'
 import Link from 'next/link'
 import * as React from 'react'
@@ -39,7 +38,19 @@ export function SidebarMenu() {
       label: '',
       name: 'Detect Stroke',
       icon: <SearchIcon className="mr-2" />,
-      href: '/',
+      href: '/detect-stroke',
+      submenu: [
+        {
+          name: 'Image',
+          href: '/detect-stroke/image',
+          icon: <></>,
+        },
+        {
+          name: 'Questionnaire',
+          href: '/detect-stroke/questionnaire',
+          icon: <></>,
+        },
+      ],
     },
     {
       label: '',
@@ -57,11 +68,11 @@ export function SidebarMenu() {
           href: '/ai/rehabilitation',
           icon: <></>,
         },
-        {
-          name: 'Mental Health',
-          href: '/ai/mental-health',
-          icon: <></>,
-        },
+        // {
+        //   name: 'Mental Health',
+        //   href: '/ai/mental-health',
+        //   icon: <></>,
+        // },
         {
           name: 'Chat Support',
           href: '/ai/chat-support',
@@ -86,10 +97,13 @@ export function SidebarMenu() {
   const uniqueLabels = Array.from(new Set(menus.map((menu) => menu.label)))
 
   return (
-    <ScrollArea className="h-screen rounded-md sm:w-full lg:w-64">
-      <span className="flex h-24 w-full items-center justify-center bg-background text-3xl font-bold ">
+    <ScrollArea className="h-screen rounded-md bg-secondary sm:w-full lg:w-72">
+      <Link
+        href="/"
+        className="flex h-24 w-full items-center justify-center bg-transparent text-3xl font-bold "
+      >
         MedGPT
-      </span>
+      </Link>
       <div className="mt-5 space-y-4 sm:p-0 md:px-4">
         {uniqueLabels.map((label, index) => (
           <React.Fragment key={label}>
@@ -120,7 +134,7 @@ export function SidebarMenu() {
                         <AccordionTrigger>
                           <a
                             key={menu.name}
-                            className="my-2 flex h-10 w-full items-center justify-start rounded-md bg-background p-6 text-lg font-normal hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-background"
+                            className="my-2 flex h-10 w-full items-center justify-start rounded-md p-6 text-lg font-normal hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-background"
                           >
                             <div
                               className={cn(
@@ -140,7 +154,7 @@ export function SidebarMenu() {
                             <Link
                               key={submenu.name}
                               href={submenu.href}
-                              className="my-2 mb-0 mt-0 flex h-10 items-center rounded-md bg-white p-6 text-lg text-gray-400 hover:bg-primary hover:text-white dark:bg-background dark:hover:bg-primary dark:hover:text-background"
+                              className="my-2 mb-0 mt-0 flex h-10 items-center rounded-md p-6 text-lg text-gray-400 hover:text-white dark:bg-background dark:hover:bg-primary dark:hover:text-background"
                             >
                               <div className="w-6">{submenu.icon}</div>
                               {submenu.name}
@@ -153,7 +167,7 @@ export function SidebarMenu() {
                     <div key={menu.name}>
                       <Link
                         href={menu.href}
-                        className="my-2 flex h-10 items-center rounded-md bg-white p-6 text-lg hover:bg-primary hover:text-white dark:bg-background dark:hover:bg-primary dark:hover:text-background"
+                        className="my-2 flex h-10 items-center rounded-md p-6 text-lg hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-background"
                       >
                         <div className="w-10">{menu.icon}</div>
                         {menu.name}
