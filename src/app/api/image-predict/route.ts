@@ -1,15 +1,14 @@
 import axios from 'axios'
 import { NextResponse } from 'next/server'
 
-const AI71_BASE_URL = process.env.AI71_BASE_URL
-const AI71_API_KEY = process.env.AI71_API_KEY
+const IMAGE_DETECTION_BASE_URL = process.env.IMAGE_DETECTION_BASE_URL
+const IMAGE_DETECTION_API_KEY = process.env.IMAGE_DETECTION_API_KEY
 
 export async function POST(req: Request, res: Response) {
-  const dat = await req.json()
+  const dat = await req.formData()
+  const image = dat.get('image')
 
-  const { chatHistory, newMessage } = dat
-
-  if (!chatHistory || !newMessage) {
+  if (!image) {
     return NextResponse.json({
       success: false,
       data: 'Missing required parameters',
@@ -17,18 +16,13 @@ export async function POST(req: Request, res: Response) {
   }
 
   try {
-    const allMessages = [...chatHistory, { role: 'user', content: newMessage }]
-
+    // TODO: UPDATE THE URL AND INPUT/OUTPUT FOR API
     const response = await axios.post(
-      `${AI71_BASE_URL}/v1/chat/completions`,
-      {
-        model: 'tiiuae/falcon-180b-chat',
-        messages: allMessages,
-      },
+      `${IMAGE_DETECTION_BASE_URL}/v1/`,
+      { image },
       {
         headers: {
-          Authorization: `Bearer ${AI71_API_KEY}`,
-          'Content-Type': 'application/json',
+          Authorization: `Bearer ${IMAGE_DETECTION_API_KEY}`,
         },
       },
     )
