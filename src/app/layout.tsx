@@ -1,12 +1,12 @@
 import { GeistSans } from 'geist/font/sans'
 import ThemeProvider from '@/providers/ThemeProvider'
 import NextTopLoader from 'nextjs-toploader'
-import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import ReactQueryProvider from '@/providers/ReactQueryProvider'
 import { SidebarMenu } from '@/components/Sidebar'
 import { Toaster } from '@/components/ui/sonner'
+import useAuth from '@/hooks/useAuth'
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -18,11 +18,14 @@ export const metadata = {
   description: 'MedGPT is a platform for stroke detection and medical support',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const { getUser } = useAuth()
+  const user = await getUser()
+
   return (
     <html
       lang="en"
@@ -40,9 +43,13 @@ export default function RootLayout({
           <ReactQueryProvider>
             <Toaster />
             <div className="flex">
-              <div className="hidden sm:block">
-                <SidebarMenu />
-              </div>
+              {user ? (
+                <div className="hidden sm:block">
+                  <SidebarMenu />
+                </div>
+              ) : (
+                <></>
+              )}
               <main className="w-full p-4">{children}</main>
             </div>
             <ReactQueryDevtools initialIsOpen={false} />

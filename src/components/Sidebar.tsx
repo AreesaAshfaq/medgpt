@@ -18,8 +18,9 @@ import {
   SearchIcon,
 } from 'lucide-react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import * as React from 'react'
+import { createBrowserClient } from '@/utils/supabase'
 
 type Menu = {
   label?: string
@@ -37,6 +38,7 @@ type Submenu = {
 
 export function SidebarMenu() {
   const currentPath = usePathname()
+  const router = useRouter()
 
   const menus: Menu[] = [
     {
@@ -95,6 +97,13 @@ export function SidebarMenu() {
   ]
 
   const uniqueLabels = Array.from(new Set(menus.map((menu) => menu.label)))
+
+  const handleSignout = async () => {
+    const supabase = createBrowserClient()
+    await supabase.auth.signOut()
+
+    window.location.href = '/login'
+  }
 
   return (
     <ScrollArea className="h-screen rounded-md bg-secondary sm:w-full lg:w-72">
@@ -195,6 +204,12 @@ export function SidebarMenu() {
         ))}
         <div className="flex w-full items-center justify-center">
           <ThemeToggle />
+          <button
+            className="my-2 flex h-10 items-center rounded-md p-6 text-lg"
+            onClick={handleSignout}
+          >
+            Log Out
+          </button>
         </div>
       </div>
     </ScrollArea>

@@ -53,7 +53,7 @@ export default function Login({
   }
 
   return (
-    <div className="flex w-full flex-1 flex-col justify-center gap-2 px-8 sm:max-w-md">
+    <div className="flex min-h-screen flex-1 flex-col items-center justify-center gap-2 px-8 ">
       <Link
         href="/"
         className="bg-btn-background hover:bg-btn-background-hover group absolute left-8 top-8 flex items-center rounded-md px-4 py-2 text-sm text-foreground no-underline"
@@ -76,7 +76,7 @@ export default function Login({
       </Link>
 
       <form
-        className="flex w-full flex-1 flex-col justify-center gap-2 text-foreground animate-in"
+        className="flex w-full flex-1 flex-col justify-center gap-2 text-foreground animate-in md:max-w-lg"
         action={signIn}
       >
         <label className="text-md" htmlFor="email">
