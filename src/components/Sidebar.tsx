@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Accordion,
   AccordionContent,
@@ -16,6 +18,7 @@ import {
   SearchIcon,
 } from 'lucide-react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import * as React from 'react'
 
 type Menu = {
@@ -33,6 +36,8 @@ type Submenu = {
 }
 
 export function SidebarMenu() {
+  const currentPath = usePathname()
+
   const menus: Menu[] = [
     {
       label: '',
@@ -68,11 +73,6 @@ export function SidebarMenu() {
           href: '/ai/rehabilitation',
           icon: <></>,
         },
-        // {
-        //   name: 'Mental Health',
-        //   href: '/ai/mental-health',
-        //   icon: <></>,
-        // },
         {
           name: 'Chat Support',
           href: '/ai/chat-support',
@@ -134,7 +134,12 @@ export function SidebarMenu() {
                         <AccordionTrigger>
                           <a
                             key={menu.name}
-                            className="my-2 flex h-10 w-full items-center justify-start rounded-md p-6 text-lg font-normal hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-background"
+                            className={cn(
+                              'my-2 flex h-10 w-full items-center justify-start rounded-md p-6 text-lg font-normal',
+                              currentPath.startsWith(menu.href)
+                                ? 'bg-primary text-primary-foreground'
+                                : 'hover:bg-primary hover:text-primary-foreground dark:hover:bg-primary dark:hover:text-background',
+                            )}
                           >
                             <div
                               className={cn(
@@ -154,7 +159,12 @@ export function SidebarMenu() {
                             <Link
                               key={submenu.name}
                               href={submenu.href}
-                              className="my-2 mb-0 mt-0 flex h-10 items-center rounded-md p-6 text-lg text-gray-400 hover:text-white dark:bg-background dark:hover:bg-primary dark:hover:text-background"
+                              className={cn(
+                                'my-2 mb-0 mt-0 flex h-10 items-center rounded-md p-6 text-lg',
+                                currentPath === submenu.href
+                                  ? 'bg-primary text-primary-foreground'
+                                  : 'text-gray-400 hover:text-primary-foreground dark:bg-background dark:hover:bg-primary dark:hover:text-background',
+                              )}
                             >
                               <div className="w-6">{submenu.icon}</div>
                               {submenu.name}
@@ -167,7 +177,12 @@ export function SidebarMenu() {
                     <div key={menu.name}>
                       <Link
                         href={menu.href}
-                        className="my-2 flex h-10 items-center rounded-md p-6 text-lg hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-background"
+                        className={cn(
+                          'my-2 flex h-10 items-center rounded-md p-6 text-lg',
+                          currentPath === menu.href
+                            ? 'bg-primary text-primary-foreground'
+                            : 'hover:bg-primary hover:text-primary-foreground dark:hover:bg-primary dark:hover:text-background',
+                        )}
                       >
                         <div className="w-10">{menu.icon}</div>
                         {menu.name}
