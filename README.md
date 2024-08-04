@@ -1,25 +1,8 @@
-![image](https://github.com/michaeltroya/supa-next-starter/assets/38507347/2ea40874-98de-49ec-ab6a-74c816e6ca22)
-
-<h1 align="center">⚡ SupaNext Starter Kit ⚡</h1>
+<h1 align="center">⚡ MEDGPT ⚡</h1>
 
 <p align="center">
- The Last Next.js and Supabase Starter You Will Ever Need
+   An AI Tool to detect Stroke Detection and provide ongoing support using Falcon AI.
 </p>
-
-<div align="center">
-
-<img alt="GitHub License" src="https://img.shields.io/github/license/michaeltroya/supa-next-starter">
-
-  <a href="https://twitter.com/intent/follow?screen_name=michaeltroya_">
-   <img alt="X (formerly Twitter) Follow" src="https://img.shields.io/twitter/follow/michaeltroya_">
-  </a>
-</div>
-
-<div align="center">
-  <sub>Created by <a href="https://twitter.com/michaeltroya_">Michael Troya</a>
-</div>
-
-<br/>
 
 <p align="center">
   <a href="#features"><strong>Features</strong></a> ·
@@ -58,9 +41,9 @@
 2. Create a Next.js app using the Supabase Starter template npx command
 
    ```bash
-   pnpm create next-app -e https://github.com/michaeltroya/supa-next-starter
+   pnpm create next-app -e https://github.com/itxtalal/medgpt
    # or
-   npx create-next-app -e https://github.com/michaeltroya/supa-next-starter
+   npx create-next-app -e https://github.com/itxtalal/medgpt
    ```
 
 3. Use `cd` to change into the app's directory
@@ -88,13 +71,6 @@
 
 > Check out [the docs for Local Development](https://supabase.com/docs/guides/getting-started/local-development) to also run Supabase locally.
 
-## Showcase
-
-Websites started using this template:
-
-- [mainspring.pro](https://www.mainspring.pro/)
-- [Add yours](https://github.com/michaeltroya/supa-next-starter/edit/main/README.md)
-
 # Documentation
 
 ### Requirements
@@ -115,17 +91,6 @@ Websites started using this template:
 - `pnpm test:ci` — Runs all the jest tests in the project, Jest will assume it is running in a CI environment.
 - `pnpm analyze` — Builds the project and opens the bundle analyzer.
 
-### Paths
-
-TypeScript is pre-configured with custom path mappings. To import components or files, use the `@` prefix.
-
-```tsx
-import { Button } from '@/components/ui/Button'
-
-// To import images or other files from the public folder
-import avatar from '@/public/avatar.png'
-```
-
 ### Switch to Yarn/npm
 
 This starter uses pnpm by default, but this choice is yours. If you'd like to switch to Yarn/npm, delete the `pnpm-lock.yaml` file, install the dependencies with Yarn/npm, change the CI workflow, and Husky Git hooks to use Yarn/npm commands.
@@ -136,4 +101,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Feedback and issues
 
-Please file feedback and issues [here](https://github.com/michaeltroya/supa-next-starter/issues).
+Please file feedback and issues [here](https://github.com/itxtalal/medgpt/issues).

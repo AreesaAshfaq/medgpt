@@ -1,6 +1,6 @@
 {
-  "name": "supa-next-starter",
-  "description": "A production ready Next.js/Supabase starter. ",
+  "name": "medgpt",
+  "description": "An AI Tool to detect Stroke Detection and provide ongoing support using Falcon AI",
   "version": "1.0.0",
   "private": true,
   "scripts": {
