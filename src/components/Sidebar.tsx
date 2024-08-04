@@ -88,7 +88,7 @@ export function SidebarMenu() {
   return (
     <ScrollArea className="h-screen rounded-md sm:w-full lg:w-64">
       <span className="flex h-24 w-full items-center justify-center bg-background text-3xl font-bold ">
-        Stroke AI
+        MedGPT
       </span>
       <div className="mt-5 space-y-4 sm:p-0 md:px-4">
         {uniqueLabels.map((label, index) => (

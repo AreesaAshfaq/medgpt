@@ -2,21 +2,9 @@
 
 import { userData } from '@/app/data'
 import React, { useEffect, useState } from 'react'
-import { cn } from '@/utils/tailwind'
 import { Chat } from './chat'
 
-interface ChatLayoutProps {
-  defaultLayout: number[] | undefined
-  defaultCollapsed?: boolean
-  navCollapsedSize: number
-}
-
-export function ChatLayout({
-  defaultLayout = [320, 480],
-  defaultCollapsed = false,
-  navCollapsedSize,
-}: ChatLayoutProps) {
-  const [isCollapsed, setIsCollapsed] = React.useState(defaultCollapsed)
+export function ChatLayout() {
   const [selectedUser, setSelectedUser] = React.useState(userData[0])
   const [isMobile, setIsMobile] = useState(false)
 

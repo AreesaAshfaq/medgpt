@@ -1,60 +1,60 @@
 export const userData = [
   {
     id: 1,
-    avatar: '/User1.png',
+    avatar: '/ai.png',
     messages: [
       {
         id: 1,
-        avatar: '/User1.png',
+        avatar: '/ai.png',
         name: 'AI',
         message: 'Hey, Jakob',
       },
       {
         id: 2,
-        avatar: '/LoggedInUser.jpg',
+        avatar: '/person.jpg',
         name: 'Jakob Hoeg',
         message: 'Hey!',
       },
       {
         id: 3,
-        avatar: '/User1.png',
+        avatar: '/ai.png',
         name: 'AI',
         message: 'How are you?',
       },
       {
         id: 4,
-        avatar: '/LoggedInUser.jpg',
+        avatar: '/person.jpg',
         name: 'Jakob Hoeg',
         message: 'I am good, you?',
       },
       {
         id: 5,
-        avatar: '/User1.png',
+        avatar: '/ai.png',
         name: 'AI',
         message: 'I am good too!',
       },
       {
         id: 6,
-        avatar: '/LoggedInUser.jpg',
+        avatar: '/person.jpg',
         name: 'Jakob Hoeg',
         message: 'That is good to hear!',
       },
       {
         id: 7,
-        avatar: '/User1.png',
+        avatar: '/ai.png',
         name: 'AI',
         message: 'How has your day been so far?',
       },
       {
         id: 8,
-        avatar: '/LoggedInUser.jpg',
+        avatar: '/person.jpg',
         name: 'Jakob Hoeg',
         message:
           'It has been good. I went for a run this morning and then had a nice breakfast. How about you?',
       },
       {
         id: 9,
-        avatar: '/User1.png',
+        avatar: '/ai.png',
         name: 'AI',
         message: 'I had a relaxing day. Just catching up on some reading.',
       },
@@ -78,15 +78,22 @@ export const userData = [
   },
 ]
 
+export const loggedInUserData = {
+  id: 11233,
+  avatar: '/person.jpg',
+  name: 'Person',
+  messages: [],
+}
+
 export type UserData = (typeof userData)[number]
 
-export const loggedInUserData = {
+export const personData = {
   id: 5,
-  avatar: '/LoggedInUser.jpg',
+  avatar: '/person.jpg',
   name: 'Jakob Hoeg',
 }
 
-export type LoggedInUserData = typeof loggedInUserData
+export type personData = typeof personData
 
 export interface Message {
   id: number
