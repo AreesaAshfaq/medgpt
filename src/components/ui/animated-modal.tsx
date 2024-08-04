@@ -39,6 +39,11 @@ export function Modal({ children }: { children: ReactNode }) {
   return <ModalProvider>{children}</ModalProvider>
 }
 
+export const closeModal = () => {
+  const item = document.getElementById('close-modal-btn')
+  item?.click()
+}
+
 export const ModalTrigger = ({
   children,
   className,
@@ -49,6 +54,7 @@ export const ModalTrigger = ({
   const { setOpen } = useModal()
   return (
     <button
+      id="close-modal-btn"
       className={cn(
         'relative overflow-hidden rounded-md px-4 py-2 text-center text-black dark:text-white',
         className,

@@ -44,7 +44,7 @@ export default async function RootLayout({
             <Toaster />
             <div className="flex">
               {user ? (
-                <div className="hidden sm:block">
+                <div className="hidden  sm:block">
                   <SidebarMenu />
                 </div>
               ) : (

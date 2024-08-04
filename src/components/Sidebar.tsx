@@ -38,33 +38,25 @@ type Submenu = {
 
 export function SidebarMenu() {
   const currentPath = usePathname()
-  const router = useRouter()
 
   const menus: Menu[] = [
     {
       label: '',
-      name: 'Detect Stroke',
+      name: 'Stroke Detection by Image',
       icon: <SearchIcon className="mr-2" />,
-      href: '/detect-stroke',
-      submenu: [
-        {
-          name: 'Image',
-          href: '/detect-stroke/image',
-          icon: <></>,
-        },
-        {
-          name: 'Questionnaire',
-          href: '/detect-stroke/questionnaire',
-          icon: <></>,
-        },
-      ],
+      href: '/detect-stroke/image',
     },
     {
       label: '',
-      name: 'AI Support',
+      name: 'Chat Bots',
       icon: <SquareStack className="mr-2" />,
       href: '/ai',
       submenu: [
+        {
+          name: 'Stroke Detection',
+          href: '/ai/diagnosis',
+          icon: <></>,
+        },
         {
           name: 'Caregiver',
           href: '/ai/caregiver',
@@ -73,11 +65,6 @@ export function SidebarMenu() {
         {
           name: 'Rehabilitation',
           href: '/ai/rehabilitation',
-          icon: <></>,
-        },
-        {
-          name: 'Chat Support',
-          href: '/ai/chat-support',
           icon: <></>,
         },
       ],
@@ -118,7 +105,7 @@ export function SidebarMenu() {
           <React.Fragment key={label}>
             {label && (
               <p
-                className={`mx-4 mb-3 text-left text-lg font-bold tracking-wider text-slate-300 ${
+                className={`mx-2 mb-3 text-left text-lg font-bold tracking-wider text-slate-300 ${
                   index > 0 ? 'mt-10' : ''
                 }`}
               >
@@ -144,7 +131,7 @@ export function SidebarMenu() {
                           <a
                             key={menu.name}
                             className={cn(
-                              'my-2 flex h-10 w-full items-center justify-start rounded-md p-6 text-lg font-normal',
+                              'my-2 flex h-10 w-full items-center justify-start rounded-md px-3  py-8 text-lg font-normal',
                               currentPath.startsWith(menu.href)
                                 ? 'bg-primary text-primary-foreground'
                                 : 'hover:bg-primary hover:text-primary-foreground dark:hover:bg-primary dark:hover:text-background',
@@ -169,7 +156,7 @@ export function SidebarMenu() {
                               key={submenu.name}
                               href={submenu.href}
                               className={cn(
-                                'my-2 mb-0 mt-0 flex h-10 items-center rounded-md p-6 text-lg',
+                                'my-2 mb-0 mt-0 flex h-10 items-center rounded-md  px-3 py-8 text-lg',
                                 currentPath === submenu.href
                                   ? 'bg-primary text-primary-foreground'
                                   : 'text-gray-400 hover:text-primary-foreground dark:bg-background dark:hover:bg-primary dark:hover:text-background',
@@ -187,7 +174,7 @@ export function SidebarMenu() {
                       <Link
                         href={menu.href}
                         className={cn(
-                          'my-2 flex h-10 items-center rounded-md p-6 text-lg',
+                          'my-2 flex h-10 items-center rounded-md px-3 py-8 text-lg',
                           currentPath === menu.href
                             ? 'bg-primary text-primary-foreground'
                             : 'hover:bg-primary hover:text-primary-foreground dark:hover:bg-primary dark:hover:text-background',
