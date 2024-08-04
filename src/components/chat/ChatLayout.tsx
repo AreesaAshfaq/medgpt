@@ -2,7 +2,7 @@
 
 import { Message, userData } from '@/app/data'
 import React, { useEffect, useState } from 'react'
-import { Chat } from '@/components/chat/Chat'
+import { Chat } from './ChatView'
 
 export function ChatLayout({ messages }: { messages: Message[] }) {
   const [selectedUser, setSelectedUser] = React.useState(userData[0])
