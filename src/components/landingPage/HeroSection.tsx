@@ -6,17 +6,16 @@ import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const HeroSection = () => {
+const HeroSection = ({id}: {id: string}) => {
   return (
-    <div className="min-h-screen bg-background text-foreground relative">
+    <div id={id} className="min-h-screen bg-background text-foreground relative">
       <Image
         src="/brain-illustration-1-svgrepo-com.svg"
         alt="Brain Icon"
-        layout="fill"
-        objectFit="cover"
-
-        className="opacity-5"
+        fill
+        className="opacity-5 object-cover"
       />
+
 
       <section className="container mx-auto py-20 text-center relative z-10">
         <motion.h1

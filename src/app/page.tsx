@@ -8,13 +8,13 @@ import Link from 'next/link'
 
 export default function Index() {
   return (
-    <section className="  ">
+    <section className="bg-background  ">
       <Header />
       <div>
       {/*LANDING*/}
-      <HeroSection/>
-      <Features />
-      <AdvanceFeatureSection/>
+      <HeroSection id='home'/>
+      <Features id='features' />
+      <AdvanceFeatureSection id='ai-imaging'/>
       <Footer/>
       {/*{!user ? (
         <Link

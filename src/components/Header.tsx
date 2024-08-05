@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { Home, Info, Settings, Phone, Menu, X, Moon, Sun } from 'lucide-react';
+import { Home, Info, Settings, Phone, Menu, X, Moon, Sun, Brain } from 'lucide-react';
 
 const MotionDiv = dynamic(() => import('framer-motion').then((mod) => mod.motion.div), { ssr: false });
 const MotionButton = dynamic(() => import('framer-motion').then((mod) => mod.motion.button), { ssr: false });
@@ -35,14 +35,14 @@ const Header: React.FC = ({user}: any) => {
   };
 
   const navItems = [
-    { name: 'Home', icon: <Home size={18} />, href: '/' },
-    { name: 'Features', icon: <Settings size={18} />, href: '/services' },
-    { name: 'About', icon: <Info size={18} />, href: '/about' },
+    { name: 'Home', icon: <Home size={18} />, href: '#home' },
+    { name: 'Features', icon: <Settings size={18} />, href: '#features' },
+    { name: 'AI-Imaging', icon: <Brain size={18} />, href: '#ai-imaging' },
     //{ name: 'Contact', icon: <Phone size={18} />, href: '/contact' },
   ];
 
   return (
-    <header className={`bg-transparent text-foreground dark:text-gray-200 py-4 px-6 w-full z-50 transition-all duration-300 ${isScrolled ? 'fixed top-0 shadow-md backdrop-blur-md bg-opacity-80' : ''} shadow-lg`}>
+    <header className={`bg-gradient-to-b from-primary/20  to-primary/5 backdrop-blur-md text-foreground dark:text-gray-200 py-4 px-6 w-full z-50 transition-all duration-300 ${isScrolled ? 'fixed top-0 shadow-md' : ''} shadow-lg`}>
       <div className="container mx-auto flex justify-between items-center">
         <MotionDiv
           initial={{ opacity: 0, x: -20 }}
