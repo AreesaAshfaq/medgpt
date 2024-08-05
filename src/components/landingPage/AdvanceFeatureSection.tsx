@@ -7,7 +7,7 @@ const AdvanceFeatureSection = ({id}: {id: string}) => {
       <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
         <div className="w-full lg:w-1/2 relative aspect-video">
           <Image
-            src="/ai_imaging.webp"
+            src="https://cdn.clinicallab.com/assets/articleNo/26822/aImg/50361/near-infrared-spectroscopy-for-noninvasive-intracranial-pressure-monitoring-x.webp?t=1722848415836"
             alt="Advanced Image Recognition"
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -15,15 +15,15 @@ const AdvanceFeatureSection = ({id}: {id: string}) => {
           />
         </div>
         <div className="w-full lg:w-1/2 space-y-6">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-50 leading-tight">
             Advanced Image Recognition for Stroke Detection
           </h2>
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-lg text-gray-700 leading-relaxed dark:text-gray-200">
             Our state-of-the-art MRI-based stroke detection model leverages cutting-edge AI technology to accurately identify stroke indicators. This advanced system enhances diagnostic precision, supporting timely medical intervention and improving patient outcomes.
           </p>
           <ul className="space-y-3">
             {['Rapid analysis', 'High accuracy', 'Early detection'].map((feature, index) => (
-              <li key={index} className="flex items-center text-gray-700">
+              <li key={index} className="flex items-center text-gray-700 dark:text-gray-200">
                 <svg className="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
