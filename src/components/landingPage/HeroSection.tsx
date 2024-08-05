@@ -36,7 +36,7 @@ const HeroSection = ({id}: {id: string}) => {
 }
 
 const HeroContent = () => (
-  <section className="lg:w-1/2 text-left lg:pr-10">
+  <section className="lg:w-1/2 text-left lg:pr-10 ">
     <motion.h1
       className="text-4xl lg:text-6xl font-bold mb-6 text-primary"
       initial={{ opacity: 0, y: -20 }}

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { Home, Info, Settings, Phone, Menu, X, Moon, Sun, Brain } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import { redirect } from 'next/navigation';
 
 const MotionDiv = dynamic(() => import('framer-motion').then((mod) => mod.motion.div), { ssr: false });
 const MotionButton = dynamic(() => import('framer-motion').then((mod) => mod.motion.button), { ssr: false });
@@ -119,13 +120,16 @@ const Header: React.FC = ({ user }: any) => {
               </li>
             ))}
             <li>
+              <Link href="/get-started" passHref>
               <MotionButton
                 className="w-full px-4 py-2 bg-primary text-primary-foreground font-bold text-lg rounded-full shadow-lg hover:bg-accent hover:text-accent-foreground transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center relative group"
+                //onClick={() => redirect('/get-started')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 {!user ? 'Sign Up' : 'Sign In'}
               </MotionButton>
+                </Link>
             </li>
           </ul>
         </MotionDiv>
