@@ -50,7 +50,7 @@ export default async function RootLayout({
               ) : (
                 <></>
               )}
-              <main className="w-full p-4">{children}</main>
+              <main className="w-full ">{children}</main>
             </div>
             <ReactQueryDevtools initialIsOpen={false} />
           </ReactQueryProvider>
