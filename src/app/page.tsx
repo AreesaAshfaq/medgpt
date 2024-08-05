@@ -1,19 +1,20 @@
 import Header from '@/components/Header'
-import Intro from '@/components/landingPage/Intro'
+import AdvanceFeatureSection from '@/components/landingPage/AdvanceFeatureSection'
+import Features from '@/components/landingPage/Features'
+import HeroSection from '@/components/landingPage/HeroSection'
 import useAuth from '@/hooks/useAuth'
 import Link from 'next/link'
 
-export default async function Index() {
-  const { getUser } = useAuth()
-  const user = await getUser()
-
+export default function Index() {
   return (
     <section className="  ">
-      <Header/>
+      <Header />
       <div>
       {/*LANDING*/}
-      <Intro/>
-      {!user ? (
+      <HeroSection/>
+      <Features />
+      <AdvanceFeatureSection/>
+      {/*{!user ? (
         <Link
         href="/login"
         className="rounded-md bg-secondary px-4 py-2 no-underline hover:bg-secondary-foreground hover:text-secondary"
@@ -22,7 +23,7 @@ export default async function Index() {
         </Link>
       ) : (
         <></>
-      )}
+      )}*/}
       </div>
     </section>
   )
