@@ -5,7 +5,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['cdn.sanity.io', 'localhost:3000', 'cdn.clinicallab.com', 'launchbase.uk'],
+    domains: ['cdn.sanity.io', 'localhost:3000', 'cdn.clinicallab.com', 'launchbase.uk', 'media.licdn.com'],
   },
 }
 
