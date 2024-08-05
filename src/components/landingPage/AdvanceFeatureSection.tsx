@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
+import Link from "next/link";
 
 const AdvanceFeatureSection = ({id}: {id: string}) => {
   return (
@@ -31,10 +32,12 @@ const AdvanceFeatureSection = ({id}: {id: string}) => {
               </li>
             ))}
           </ul>
+          <Link href="/get-started" passHref>
           <button className="inline-flex items-center px-6 py-3 bg-accent text-accent-foreground rounded-full text-lg font-semibold hover:bg-primary hover:text-primary-foreground transition duration-300">
             Learn More
             <ArrowRight className="ml-2 h-5 w-5" />
           </button>
+          </Link>
         </div>
       </div>
     </section>
