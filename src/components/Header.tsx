@@ -36,9 +36,9 @@ const Header: React.FC = ({user}: any) => {
 
   const navItems = [
     { name: 'Home', icon: <Home size={18} />, href: '/' },
+    { name: 'Features', icon: <Settings size={18} />, href: '/services' },
     { name: 'About', icon: <Info size={18} />, href: '/about' },
-    { name: 'Services', icon: <Settings size={18} />, href: '/services' },
-    { name: 'Contact', icon: <Phone size={18} />, href: '/contact' },
+    //{ name: 'Contact', icon: <Phone size={18} />, href: '/contact' },
   ];
 
   return (

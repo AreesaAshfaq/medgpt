@@ -2,7 +2,8 @@ import Header from '@/components/Header'
 import AdvanceFeatureSection from '@/components/landingPage/AdvanceFeatureSection'
 import Features from '@/components/landingPage/Features'
 import HeroSection from '@/components/landingPage/HeroSection'
-import useAuth from '@/hooks/useAuth'
+import Footer from '@/components/landingPage/Footer'
+//import useAuth from '@/hooks/useAuth'
 import Link from 'next/link'
 
 export default function Index() {
@@ -14,6 +15,7 @@ export default function Index() {
       <HeroSection/>
       <Features />
       <AdvanceFeatureSection/>
+      <Footer/>
       {/*{!user ? (
         <Link
         href="/login"

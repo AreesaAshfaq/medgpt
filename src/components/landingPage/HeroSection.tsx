@@ -45,7 +45,7 @@ const HeroSection = () => {
           <Link href="/get-started" passHref>
             <motion.button
 
-              className="px-10 py-4 bg-accent text-accent-foreground rounded-full text-xl font-bold hover:bg-primary hover:text-primary-foreground transition duration-300 shadow-lg"
+              className="px-10 py-4 hover:bg-accent hover:text-accent-foreground rounded-full text-xl font-bold bg-primary text-primary-foreground transition duration-300 shadow-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
