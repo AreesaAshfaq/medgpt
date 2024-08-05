@@ -59,27 +59,27 @@ const HeroContent = () => (
       transition={{ duration: 0.5, delay: 0.6 }}
     >
       <Link href="/get-started" passHref>
-        <motion.button
+        <button
           className="px-8 py-3 md:text-md lg:px-10 lg:py-4 hover:bg-accent hover:text-accent-foreground rounded-full text-md lg:text-xl font-bold bg-primary text-primary-foreground transition duration-300 shadow-lg"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          //whileHover={{ scale: 1.05 }}
+          //whileTap={{ scale: 0.95 }}
         >
           Start Your Health Journey <ArrowRight className="inline-block ml-2" />
-        </motion.button>
+        </button>
       </Link>
     </motion.div>
   </section>
 )
 
 const HeroImage = ({ imageUrl }: { imageUrl: string }) => (
-  <div className="lg:w-1/2 mt-10 lg:mt-0 hidden sm:block">
+  <div className="lg:w-1/2 mt-10 lg:mt-0 hidden sm:block border border-gray-600 rounded-lg shadow-xl">
     {imageUrl && (
       <Image
         src={imageUrl}
         alt="MedGPT Hero Image"
         width={900}
         height={900}
-        className="rounded-lg shadow-xl "
+        //className="rounded-lg "
       />
     )}
   </div>

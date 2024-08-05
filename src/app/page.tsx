@@ -9,24 +9,14 @@ import Link from 'next/link'
 export default function Index() {
   return (
     <section className="bg-background  ">
+      {/*<div>*/}
       <Header />
-      <div>
       {/*LANDING*/}
       <HeroSection id='home'/>
       <Features id='features' />
       <AdvanceFeatureSection id='ai-imaging'/>
       <Footer/>
-      {/*{!user ? (
-        <Link
-        href="/login"
-        className="rounded-md bg-secondary px-4 py-2 no-underline hover:bg-secondary-foreground hover:text-secondary"
-        >
-          Log In
-        </Link>
-      ) : (
-        <></>
-      )}*/}
-      </div>
+      {/*</div>*/}
     </section>
   )
 }

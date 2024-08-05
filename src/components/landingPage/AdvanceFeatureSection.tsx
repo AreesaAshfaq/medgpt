@@ -22,6 +22,8 @@ const AdvanceFeatureSection = ({id}: {id: string}) => {
           <p className="text-lg text-gray-700 leading-relaxed dark:text-gray-200">
             Our state-of-the-art MRI-based stroke detection model leverages cutting-edge AI technology to accurately identify stroke indicators. This advanced system enhances diagnostic precision, supporting timely medical intervention and improving patient outcomes.
           </p>
+          <div className="flex sm:flex-row flex-col gap-4 align-center  sm:justify-between ">
+
           <ul className="space-y-3">
             {['Rapid analysis', 'High accuracy', 'Early detection'].map((feature, index) => (
               <li key={index} className="flex items-center text-gray-700 dark:text-gray-200">
@@ -33,12 +35,14 @@ const AdvanceFeatureSection = ({id}: {id: string}) => {
             ))}
           </ul>
           <Link href="/get-started" passHref>
-          <button className="inline-flex items-center px-6 py-3 bg-accent text-accent-foreground rounded-full text-lg font-semibold hover:bg-primary hover:text-primary-foreground transition duration-300">
+          <button
+         className="flex px-8 py-3 md:text-md lg:px-10 lg:py-4 hover:bg-accent hover:text-accent-foreground rounded-full text-md  font-bold bg-primary text-primary-foreground transition duration-300 shadow-lg">
             Learn More
             <ArrowRight className="ml-2 h-5 w-5" />
           </button>
           </Link>
         </div>
+          </div>
       </div>
     </section>
   )
