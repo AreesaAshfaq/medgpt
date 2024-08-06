@@ -98,18 +98,20 @@ export const ImageUploader: React.FC<Props> = ({ loading, onSubmit }) => {
               <FormControl>
                 <div
                   {...getRootProps()}
-                  className="mx-auto flex cursor-pointer flex-col items-center justify-center gap-y-2 rounded-lg border border-foreground p-8 shadow-sm shadow-foreground"
+                  className="flex flex-col items-center justify-center p-8 mx-auto border rounded-lg shadow-sm cursor-pointer gap-y-2 border-foreground shadow-foreground"
                 >
                   {preview && (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                       src={preview as string}
                       alt="Uploaded image"
-                      className="max-h-[400px] rounded-lg"
+                      className={`max-h-[400px] rounded-lg ${
+                        loading ? 'opacity-50' : ''
+                      }`}
                     />
                   )}
                   <ImagePlus
-                    className={`h-40 w-40 ${preview ? 'hidden' : 'block'}`}
+                    className={`h-40 w-40 ${preview ? 'hidden' : 'block'} `}
                   />
                   <Input disabled={loading} {...getInputProps()} type="file" />
                   {isDragActive ? (
@@ -132,7 +134,7 @@ export const ImageUploader: React.FC<Props> = ({ loading, onSubmit }) => {
         <Button
           type="submit"
           disabled={form.formState.isSubmitting || loading}
-          className="mx-auto block h-auto rounded-lg px-8 py-3 text-xl"
+          className="block h-auto px-8 py-3 mx-auto text-xl rounded-lg"
         >
           Submit
         </Button>

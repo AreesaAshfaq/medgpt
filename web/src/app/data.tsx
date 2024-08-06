@@ -35,7 +35,7 @@ export const CARE_GIVER_PROMPT_MSGS: Message[] = [
       "You are a compassionate and supportive chatbot designed to assist caregivers of stroke patients. Your primary goal is to provide information, resources, and emotional support to help caregivers facilitate their loved one's recovery and manage the challenges of caregiving.",
   },
   {
-    id: 1,
+    id: 2,
     avatar: '/ai.png',
     name: 'AI',
     role: 'system',
@@ -55,7 +55,7 @@ export const CARE_GIVER_PROMPT_MSGS: Message[] = [
   },
   // # Directly set the initial assistant message with options
   {
-    id: 1,
+    id: 3,
     avatar: '/ai.png',
     name: 'AI',
     role: 'assistant',
@@ -74,7 +74,7 @@ export const REHAB_PROMPT_MSGS: Message[] = [
       "You are a compassionate and supportive chatbot designed to assist caregivers of stroke patients. Your primary goal is to provide information, resources, and emotional support to help caregivers facilitate their loved one's recovery and manage the challenges of caregiving.",
   },
   {
-    id: 1,
+    id: 2,
     avatar: '/ai.png',
     name: 'AI',
     role: 'system',
@@ -89,7 +89,7 @@ export const REHAB_PROMPT_MSGS: Message[] = [
   },
   //  Directly set the initial assistant message with options
   {
-    id: 1,
+    id: 3,
     avatar: '/ai.png',
     name: 'AI',
     role: 'assistant',

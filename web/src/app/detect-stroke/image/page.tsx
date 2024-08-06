@@ -1,9 +1,9 @@
-import MRIImageUpload from '@/components/MRIImageUpload'
+import ImageDetectResults from './view'
 
 export default async function Index() {
   return (
-    <section className="flex min-h-[90vh]  items-center justify-center px-2 py-6">
-      <MRIImageUpload />
+    <section className="flex min-h-[90vh] items-center justify-center px-2 py-6">
+      <ImageDetectResults />
     </section>
   )
 }
