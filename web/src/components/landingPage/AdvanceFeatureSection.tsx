@@ -4,25 +4,25 @@ import Link from "next/link";
 
 const AdvanceFeatureSection = ({id}: {id: string}) => {
   return (
-    <section id={id} className="container mx-auto py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
-        <div className="w-full lg:w-1/2 relative aspect-video">
+    <section id={id} className="container px-4 py-12 mx-auto sm:py-16 md:py-20 sm:px-6 lg:px-8">
+      <div className="flex flex-col items-center justify-between gap-12 lg:flex-row lg:gap-16">
+        <div className="relative w-full lg:w-1/2 aspect-video">
           <Image
             src="https://cdn.clinicallab.com/assets/articleNo/26822/aImg/50361/near-infrared-spectroscopy-for-noninvasive-intracranial-pressure-monitoring-x.webp?t=1722848415836"
             alt="Advanced Image Recognition"
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="rounded-lg shadow-xl object-cover"
+            className="object-cover rounded-lg shadow-xl"
           />
         </div>
-        <div className="w-full lg:w-1/2 space-y-6">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-50 leading-tight">
+        <div className="w-full space-y-6 lg:w-1/2">
+          <h2 className="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl dark:text-gray-50">
             Advanced Image Recognition for Stroke Detection
           </h2>
-          <p className="text-lg text-gray-700 leading-relaxed dark:text-gray-200">
+          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-200">
             Our state-of-the-art MRI-based stroke detection model leverages cutting-edge AI technology to accurately identify stroke indicators. This advanced system enhances diagnostic precision, supporting timely medical intervention and improving patient outcomes.
           </p>
-          <div className="flex sm:flex-row flex-col gap-4 align-center  sm:justify-between ">
+          <div className="flex flex-col gap-4 sm:flex-row align-center sm:justify-between ">
 
           <ul className="space-y-3">
             {['Rapid analysis', 'High accuracy', 'Early detection'].map((feature, index) => (
@@ -34,11 +34,11 @@ const AdvanceFeatureSection = ({id}: {id: string}) => {
               </li>
             ))}
           </ul>
-          <Link href="/get-started" passHref>
+          <Link href="/login" passHref>
           <button
-         className="flex px-8 py-3 md:text-md lg:px-10 lg:py-4 hover:bg-accent hover:text-accent-foreground rounded-full text-md  font-bold bg-primary text-primary-foreground transition duration-300 shadow-lg">
-            Learn More
-            <ArrowRight className="ml-2 h-5 w-5" />
+         className="flex px-8 py-3 font-bold transition duration-300 rounded-full shadow-lg md:text-md lg:px-10 lg:py-4 hover:bg-accent hover:text-accent-foreground text-md bg-primary text-primary-foreground">
+            Sign Up
+            <ArrowRight className="w-5 h-5 ml-2" />
           </button>
           </Link>
         </div>

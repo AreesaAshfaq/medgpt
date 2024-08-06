@@ -18,15 +18,15 @@ const HeroSection = ({id}: {id: string}) => {
   }, [resolvedTheme])
 
   return (
-    <div id={id} className="min-h-screen bg-background text-foreground relative">
+    <div id={id} className="relative min-h-screen bg-background text-foreground">
       <Image
         src="/brain-illustration-1-svgrepo-com.svg"
         alt="Brain Icon"
         fill
-        className="opacity-5 object-cover"
+        className="object-cover opacity-5"
       />
 
-      <div className="container mx-auto py-20 relative z-10 flex flex-col lg:flex-row items-center">
+      <div className="container relative z-10 flex flex-col items-center py-20 mx-auto lg:flex-row">
         <HeroContent />
         <HeroImage imageUrl={imageUrl} />
       </div>
@@ -36,9 +36,9 @@ const HeroSection = ({id}: {id: string}) => {
 }
 
 const HeroContent = () => (
-  <section className="lg:w-1/2 text-left lg:pr-10 ">
+  <section className="text-left lg:w-1/2 lg:pr-10 ">
     <motion.h1
-      className="text-4xl lg:text-6xl font-bold mb-6 text-primary"
+      className="mb-6 text-4xl font-bold lg:text-6xl text-primary"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -46,7 +46,7 @@ const HeroContent = () => (
       Revolutionize Your Health with MedGPT
     </motion.h1>
     <motion.p
-      className="text-xl lg:text-2xl mb-10 text-foreground"
+      className="mb-10 text-xl lg:text-2xl text-foreground"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
@@ -58,9 +58,9 @@ const HeroContent = () => (
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.6 }}
     >
-      <Link href="/get-started" passHref>
+      <Link href="/login" passHref>
         <button
-          className="px-8 py-3 md:text-md lg:px-10 lg:py-4 hover:bg-accent hover:text-accent-foreground rounded-full text-md lg:text-xl font-bold bg-primary text-primary-foreground transition duration-300 shadow-lg"
+          className="px-8 py-3 font-bold transition duration-300 rounded-full shadow-lg md:text-md lg:px-10 lg:py-4 hover:bg-accent hover:text-accent-foreground text-md lg:text-xl bg-primary text-primary-foreground"
           //whileHover={{ scale: 1.05 }}
           //whileTap={{ scale: 0.95 }}
         >
@@ -72,7 +72,7 @@ const HeroContent = () => (
 )
 
 const HeroImage = ({ imageUrl }: { imageUrl: string }) => (
-  <div className="lg:w-1/2 mt-10 lg:mt-0 hidden sm:block border border-gray-600 rounded-lg shadow-xl">
+  <div className="hidden mt-10 border border-gray-600 rounded-lg shadow-xl lg:w-1/2 lg:mt-0 sm:block">
     {imageUrl && (
       <Image
         src={imageUrl}
@@ -93,7 +93,7 @@ const MobileHeroImage = ({ imageUrl }: { imageUrl: string }) => (
         alt="MedGPT Hero Image"
         layout="fill"
         objectFit="cover"
-        className=" bg-opacity-0 blur-md"
+        className="bg-opacity-0  blur-md"
       />
     )}
   </div>

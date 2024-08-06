@@ -105,14 +105,14 @@ export const AuthHeader = () => {
         isScrolled ? 'fixed top-0 shadow-md' : ''
       } toggle shadow-lg`}
     >
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="container flex items-center justify-between mx-auto">
         <MotionDiv
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
           <Link href="/">
-            <span className="flex items-center text-3xl font-bold text-primary transition duration-300 hover:text-accent-foreground">
+            <span className="flex items-center text-3xl font-bold transition duration-300 text-primary hover:text-accent-foreground">
               MedGPT
             </span>
           </Link>
@@ -127,7 +127,7 @@ export const AuthHeader = () => {
                 className="relative"
               >
                 <Link href={item.href}>
-                  <span className="group relative flex items-center rounded px-2 py-1 transition duration-300 dark:hover:text-accent-foreground">
+                  <span className="relative flex items-center px-2 py-1 transition duration-300 rounded group dark:hover:text-accent-foreground">
                     <span className="ml-1 font-bold">{item.name}</span>
                     <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-accent-foreground transition-all duration-300 group-hover:w-full dark:bg-accent-foreground"></span>
                   </span>
@@ -135,14 +135,14 @@ export const AuthHeader = () => {
                 {item.submenu && activeSubmenu === index && (
                   <ul
                     id="submenu"
-                    className="absolute left-0 z-10 mt-2 w-48 rounded border bg-white p-2 shadow-lg transition-all duration-300 dark:bg-gray-800"
+                    className="absolute left-0 z-10 w-48 p-2 mt-2 transition-all duration-300 bg-white border rounded shadow-lg dark:bg-gray-800"
                     onMouseEnter={() => handleMouseEnter(index)}
                     onMouseLeave={() => closeSubMenu(false)}
                   >
                     {item.submenu.map((subItem) => (
                       <li key={subItem.name} onClick={() => closeSubMenu(true)}>
                         <Link href={subItem.href}>
-                          <span className="text-md block rounded px-4 py-2 transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-accent-foreground">
+                          <span className="block px-4 py-2 transition-all duration-300 rounded text-md hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-accent-foreground">
                             {subItem.name}
                           </span>
                         </Link>
@@ -157,14 +157,14 @@ export const AuthHeader = () => {
         <div className="flex items-center">
           <MotionButton
             onClick={toggleTheme}
-            className="mr-4 rounded-full bg-primary p-2 text-primary-foreground transition duration-300 hover:border-primary hover:bg-accent hover:text-primary hover:shadow-lg"
+            className="p-2 mr-4 transition duration-300 rounded-full bg-primary text-primary-foreground hover:border-primary hover:bg-accent hover:text-primary hover:shadow-lg"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
           </MotionButton>
           <MotionButton
-            className="group relative hidden transform items-center rounded-full bg-primary px-4 py-2 text-lg font-bold text-primary-foreground shadow-lg transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-accent hover:text-accent-foreground md:flex"
+            className="relative items-center hidden px-4 py-2 text-lg font-bold transition duration-300 ease-in-out transform rounded-full shadow-lg group bg-primary text-primary-foreground hover:-translate-y-1 hover:scale-105 hover:bg-accent hover:text-accent-foreground md:flex"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleLogout}
@@ -174,7 +174,7 @@ export const AuthHeader = () => {
           </MotionButton>
           <MotionButton
             onClick={toggleMenu}
-            className="rounded-full bg-primary p-2 text-primary-foreground transition duration-300 hover:border-primary hover:bg-accent hover:text-primary hover:shadow-lg md:hidden"
+            className="p-2 transition duration-300 rounded-full bg-primary text-primary-foreground hover:border-primary hover:bg-accent hover:text-primary hover:shadow-lg md:hidden"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
@@ -194,16 +194,16 @@ export const AuthHeader = () => {
             {navItems.map((item) => (
               <li key={item.name}>
                 <Link href={item.href}>
-                  <span className="group relative flex items-center rounded px-2 py-1 transition duration-300 dark:hover:text-accent-foreground">
+                  <span className="relative flex items-center px-2 py-1 transition duration-300 rounded group dark:hover:text-accent-foreground">
                     <span className="ml-1 font-bold">{item.name}</span>
                   </span>
                 </Link>
                 {item.submenu && (
-                  <ul className="mt-2 space-y-2 pl-4">
+                  <ul className="pl-4 mt-2 space-y-2">
                     {item.submenu.map((subItem) => (
                       <li key={subItem.name}>
                         <Link href={subItem.href}>
-                          <span className="block rounded px-4 py-2 text-sm transition duration-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-accent-foreground">
+                          <span className="block px-4 py-2 text-sm transition duration-300 rounded hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-accent-foreground">
                             {subItem.name}
                           </span>
                         </Link>
@@ -214,9 +214,9 @@ export const AuthHeader = () => {
               </li>
             ))}
             <li>
-              <Link href="/get-started" passHref>
+              <Link href="/login" passHref>
                 <MotionButton
-                  className="group relative flex w-full transform items-center justify-center rounded-full bg-primary px-4 py-2 text-lg font-bold text-primary-foreground shadow-lg transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-accent hover:text-accent-foreground"
+                  className="relative flex items-center justify-center w-full px-4 py-2 text-lg font-bold transition duration-300 ease-in-out transform rounded-full shadow-lg group bg-primary text-primary-foreground hover:-translate-y-1 hover:scale-105 hover:bg-accent hover:text-accent-foreground"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -268,14 +268,14 @@ const Header: React.FC = () => {
         isScrolled ? 'fixed top-0 shadow-md' : ''
       } toggle shadow-lg`}
     >
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="container flex items-center justify-between mx-auto">
         <MotionDiv
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
           <Link href="/">
-            <span className="flex items-center text-3xl font-bold text-primary transition duration-300 hover:text-accent-foreground">
+            <span className="flex items-center text-3xl font-bold transition duration-300 text-primary hover:text-accent-foreground">
               MedGPT
             </span>
           </Link>
@@ -290,7 +290,7 @@ const Header: React.FC = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Link href={item.href}>
-                  <span className="group relative flex items-center rounded px-2 py-1 transition duration-300 dark:hover:text-accent-foreground">
+                  <span className="relative flex items-center px-2 py-1 transition duration-300 rounded group dark:hover:text-accent-foreground">
                     {item.icon}
                     <span className="ml-1 font-bold">{item.name}</span>
                     <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-accent-foreground transition-all duration-300 group-hover:w-full dark:bg-accent-foreground"></span>
@@ -303,7 +303,7 @@ const Header: React.FC = () => {
         <div className="flex items-center">
           <MotionButton
             onClick={toggleTheme}
-            className="mr-4 rounded-full bg-primary p-2 text-primary-foreground transition duration-300 hover:border-primary hover:bg-accent hover:text-primary hover:shadow-lg"
+            className="p-2 mr-4 transition duration-300 rounded-full bg-primary text-primary-foreground hover:border-primary hover:bg-accent hover:text-primary hover:shadow-lg"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
@@ -311,7 +311,7 @@ const Header: React.FC = () => {
           </MotionButton>
           <Link href="/login">
             <MotionButton
-              className="group relative hidden transform items-center rounded-full bg-primary px-4 py-2 text-lg font-bold text-primary-foreground shadow-lg transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-accent hover:text-accent-foreground md:flex"
+              className="relative items-center hidden px-4 py-2 text-lg font-bold transition duration-300 ease-in-out transform rounded-full shadow-lg group bg-primary text-primary-foreground hover:-translate-y-1 hover:scale-105 hover:bg-accent hover:text-accent-foreground md:flex"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -320,7 +320,7 @@ const Header: React.FC = () => {
           </Link>
           <MotionButton
             onClick={toggleMenu}
-            className="rounded-full bg-primary p-2 text-primary-foreground transition duration-300 hover:border-primary hover:bg-accent hover:text-primary hover:shadow-lg md:hidden"
+            className="p-2 transition duration-300 rounded-full bg-primary text-primary-foreground hover:border-primary hover:bg-accent hover:text-primary hover:shadow-lg md:hidden"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
@@ -340,7 +340,7 @@ const Header: React.FC = () => {
             {navItems.map((item) => (
               <li key={item.name}>
                 <Link href={item.href}>
-                  <span className="group relative flex items-center rounded px-2 py-1 transition duration-300 dark:hover:text-accent-foreground">
+                  <span className="relative flex items-center px-2 py-1 transition duration-300 rounded group dark:hover:text-accent-foreground">
                     {item.icon}
                     <span className="ml-1 font-bold">{item.name}</span>
                   </span>
@@ -350,7 +350,7 @@ const Header: React.FC = () => {
             <li>
               <Link href="/login" passHref>
                 <MotionButton
-                  className="group relative flex w-full transform items-center justify-center rounded-full bg-primary px-4 py-2 text-lg font-bold text-primary-foreground shadow-lg transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-accent hover:text-accent-foreground"
+                  className="relative flex items-center justify-center w-full px-4 py-2 text-lg font-bold transition duration-300 ease-in-out transform rounded-full shadow-lg group bg-primary text-primary-foreground hover:-translate-y-1 hover:scale-105 hover:bg-accent hover:text-accent-foreground"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
