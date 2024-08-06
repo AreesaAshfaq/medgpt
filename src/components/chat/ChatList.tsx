@@ -10,6 +10,7 @@ interface ChatListProps {
   selectedUser: UserData
   sendMessage: (newMessage: Message) => void
   isMobile: boolean
+  responseLoading: boolean
 }
 
 export function ChatList({
@@ -17,6 +18,7 @@ export function ChatList({
   selectedUser,
   sendMessage,
   isMobile,
+  responseLoading,
 }: ChatListProps) {
   const messagesContainerRef = useRef<HTMLDivElement>(null)
 
@@ -87,6 +89,37 @@ export function ChatList({
               </div>
             </motion.div>
           ))}
+
+          {responseLoading && (
+            <motion.div
+              initial={{ opacity: 0, scale: 1, y: 50, x: 0 }}
+              animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
+              exit={{ opacity: 0, scale: 1, y: 1, x: 0 }}
+              transition={{
+                opacity: { duration: 0.1 },
+                layout: {
+                  type: 'spring',
+                  bounce: 0.3,
+                  duration: 0.2,
+                },
+              }}
+              className="flex flex-col gap-2 whitespace-pre-wrap p-4"
+            >
+              <div className="flex items-center gap-3">
+                <Avatar className="flex items-center justify-center">
+                  <AvatarImage
+                    src={selectedUser.avatar}
+                    alt={selectedUser.name}
+                    width={6}
+                    height={6}
+                  />
+                </Avatar>
+                <span className="max-w-xs animate-pulse rounded-md bg-accent p-3">
+                  I am thinking...
+                </span>
+              </div>
+            </motion.div>
+          )}
         </AnimatePresence>
       </div>
       <ChatBottombar sendMessage={sendMessage} isMobile={isMobile} />

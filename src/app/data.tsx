@@ -21,7 +21,7 @@ export const DETECT_PROMPT_MSGS: Message[] = [
     name: 'AI',
     role: 'assistant',
     message:
-      "Hello! I'm MedGPT, your health assistant. I'm here to help assess your risk of stroke. Do you have an estimated probability of stroke from our X-ray model? If yes, please provide the percentage. If not, we can proceed with a few questions to understand your situation better.",
+      "Hello! I'm MedGPT, your health assistant.\n\nI'm here to help assess your risk of stroke. Do you have an estimated probability of stroke from our X-ray model?\n\n1. If yes, please provide the percentage.\n2. If not, we can proceed with a few questions to understand your situation better.",
   },
 ]
 

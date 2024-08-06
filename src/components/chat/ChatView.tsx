@@ -1,7 +1,7 @@
 import { Message, UserData } from '@/app/data'
 import ChatTopbar from './ChatTopbar'
 import { ChatList } from './ChatList'
-import React from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 
 interface ChatProps {
@@ -11,9 +11,11 @@ interface ChatProps {
 }
 
 export function Chat({ messages, selectedUser, isMobile }: ChatProps) {
-  const [messagesState, setMessages] = React.useState<Message[]>(messages ?? [])
+  const [responseLoading, setResponseLoading] = useState(false)
+  const [messagesState, setMessages] = useState<Message[]>(messages ?? [])
 
   const sendMessage = async (newMessage: Message) => {
+    setResponseLoading(true)
     setMessages((prev) => [...prev, newMessage])
 
     const res1 = await axios.post(
@@ -42,6 +44,8 @@ export function Chat({ messages, selectedUser, isMobile }: ChatProps) {
         message: res1.data.data[0].message.content.replace('\nUser:', ''),
       },
     ])
+
+    setResponseLoading(false)
   }
 
   return (
@@ -53,6 +57,7 @@ export function Chat({ messages, selectedUser, isMobile }: ChatProps) {
         selectedUser={selectedUser}
         sendMessage={sendMessage}
         isMobile={isMobile}
+        responseLoading={responseLoading}
       />
     </div>
   )
