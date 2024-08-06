@@ -48,7 +48,7 @@ const DeleteReminder = ({ afterDelete, reminder }: Props) => {
       <Modal>
         <ModalTrigger>
           <MotionButton
-            className="flex gap-2 rounded-full bg-primary px-4 py-2 text-primary-foreground transition duration-300 hover:border-primary hover:bg-accent hover:text-primary hover:shadow-lg"
+            className="flex gap-2 rounded-full bg-destructive/90 px-4 py-2 text-destructive-foreground transition duration-300 hover:border-primary hover:bg-destructive hover:shadow-lg"
             whileTap={{ scale: 0.9 }}
           >
             <Trash className="h-5 w-5" />
