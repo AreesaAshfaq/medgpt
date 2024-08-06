@@ -49,11 +49,11 @@ export function Chat({ messages, selectedUser, isMobile }: ChatProps) {
   }
 
   return (
-    <div className="flex h-full w-full flex-col justify-between md:mx-auto md:w-3/4">
+    <div className="flex flex-col justify-between w-full h-full md:mx-auto md:w-3/4">
       <ChatTopbar selectedUser={selectedUser} />
 
       <ChatList
-        messages={messagesState}
+        messages={messagesState.filter((m) => m.role !== 'system')}
         selectedUser={selectedUser}
         sendMessage={sendMessage}
         isMobile={isMobile}

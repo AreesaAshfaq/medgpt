@@ -5,7 +5,7 @@ export default async function Index() {
   return (
     <section className="flex h-[90vh] w-full flex-col ">
       <ChatLayout
-        messages={CARE_GIVER_PROMPT_MSGS.filter((m) => m.role !== 'system')}
+        messages={CARE_GIVER_PROMPT_MSGS}
       />
     </section>
   )

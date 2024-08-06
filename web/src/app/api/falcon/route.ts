@@ -18,6 +18,7 @@ export async function POST(req: Request, res: Response) {
 
   try {
     const allMessages = [...chatHistory, { role: 'user', content: newMessage }]
+    console.log(allMessages)
 
     const response = await axios.post(
       `${AI71_BASE_URL}/v1/chat/completions`,
