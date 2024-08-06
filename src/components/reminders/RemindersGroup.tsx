@@ -1,10 +1,9 @@
 'use client'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import CreateReminder from './CreateReminder'
 import Reminder from './Reminder'
-import { cookies } from 'next/headers'
-import { createBrowserClient, createServerClient } from '@/utils/supabase'
-import useAuth from '@/hooks/useAuth'
+import { createBrowserClient } from '@/utils/supabase'
+import LoadingCircle from '../ui/loading'
 
 export type Reminder = {
   id: string
@@ -18,9 +17,11 @@ export type Reminder = {
 type Props = {}
 
 const RemindersGroup = (props: Props) => {
-  const [reminders, setReminders] = React.useState<Reminder[]>([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [reminders, setReminders] = useState<Reminder[]>([])
 
   const fetchReminders = async () => {
+    setIsLoading(true)
     const supabase = createBrowserClient()
     const {
       data: { user },
@@ -36,6 +37,8 @@ const RemindersGroup = (props: Props) => {
     } else {
       setReminders(() => data as Reminder[])
     }
+
+    setIsLoading(false)
   }
 
   useEffect(() => {
@@ -51,13 +54,20 @@ const RemindersGroup = (props: Props) => {
         </div>
 
         <div className="flex flex-wrap gap-12">
-          {reminders.map((reminder) => (
-            <Reminder
-              key={reminder.id}
-              reminder={reminder}
-              afterDelete={fetchReminders}
-            />
-          ))}
+          {isLoading ? (
+            <div className="flex w-full items-center justify-center">
+              <LoadingCircle />
+            </div>
+          ) : (
+            reminders.map((reminder) => (
+              <Reminder
+                key={reminder.id}
+                reminder={reminder}
+                afterDelete={fetchReminders}
+                afterEdit={fetchReminders}
+              />
+            ))
+          )}
         </div>
       </div>
     </>

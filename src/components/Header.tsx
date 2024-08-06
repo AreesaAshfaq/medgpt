@@ -101,10 +101,6 @@ export const AuthHeader = () => {
       name: 'Reminders',
       href: '/reminders',
     },
-    {
-      name: 'Settings',
-      href: '/settings',
-    },
   ]
 
   const handleLogout = async () => {

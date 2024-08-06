@@ -10,82 +10,81 @@ import {
   ModalContent,
   ModalTrigger,
 } from '@/components/ui/animated-modal'
-import { Clock } from 'lucide-react'
+import { Edit2Icon } from 'lucide-react'
 import { createBrowserClient } from '@/utils/supabase'
 import { toast } from 'sonner'
-import { createReminderSchema, frequencyOptions } from '@/utils/constants'
-import LoadingCircle from '../ui/loading'
+import { Reminder } from './RemindersGroup'
+import { MotionButton } from '../Header'
+import LoadingCircle from '@/components/ui/loading'
+import { editReminderSchema, frequencyOptions } from '@/utils/constants'
 
-type ReminderFormValues = z.infer<typeof createReminderSchema>
+type ReminderFormValues = z.infer<typeof editReminderSchema>
 
 type Props = {
-  afterCreate: () => void
+  afterEdit: () => void
+  reminder: Reminder
 }
 
-const CreateReminder = ({ afterCreate }: Props) => {
-  const [isCreating, setIsCreating] = useState(false)
+const EditReminder = ({ afterEdit, reminder }: Props) => {
+  const [isUpdating, setIsUpdating] = useState(false)
+
   const form = useForm<ReminderFormValues>({
-    resolver: zodResolver(createReminderSchema),
+    resolver: zodResolver(editReminderSchema),
     mode: 'onBlur',
     defaultValues: {
-      title: '',
-      datetime: '',
-      frequency: frequencyOptions[0].value,
+      title: reminder.title,
+      datetime: reminder.datetime,
+      frequency: reminder.frequency,
     },
   })
 
   const { handleSubmit, register, formState } = form
 
   const onSubmit = async (values: ReminderFormValues) => {
-    setIsCreating(true)
+    setIsUpdating(true)
     const supabase = createBrowserClient()
-
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
 
     const { error } = await supabase
       .from('reminders')
-      .insert({
+      .update({
         title: values.title,
         datetime: values.datetime,
         frequency: values.frequency,
-        user_id: user?.id,
       })
+      .eq('id', reminder.id)
       .select()
       .single()
-    if (error) {
-      toast.error('Error creating reminder')
-      return
-    }
-    toast.success('Reminder created successfully')
 
-    await afterCreate()
-    setIsCreating(false)
+    if (error) return toast.error('Error updating reminder')
+    toast.success('Reminder updated successfully')
+
+    await afterEdit()
+    setIsUpdating(false)
     closeModal()
   }
 
   return (
     <>
       <Modal>
-        <ModalTrigger className="group/modal-btn flex justify-center bg-primary text-primary">
-          <span className="text-center text-primary-foreground transition duration-500 group-hover/modal-btn:translate-x-40">
-            Create Reminder
-          </span>
-          <div className="absolute inset-0 z-20 flex -translate-x-40 items-center justify-center text-primary-foreground transition duration-500 group-hover/modal-btn:translate-x-0">
-            <Clock className="h-6 w-6" />
-          </div>
+        <ModalTrigger>
+          <MotionButton
+            className="flex gap-2 rounded-full bg-primary px-4 py-2 text-primary-foreground transition duration-300 hover:border-primary hover:bg-accent hover:text-primary hover:shadow-lg"
+            whileTap={{ scale: 0.9 }}
+          >
+            <Edit2Icon className="h-5 w-5" />
+            Edit
+          </MotionButton>
         </ModalTrigger>
         <ModalBody>
           <ModalContent>
-            {isCreating ? (
+            {isUpdating ? (
               <div className="flex h-[50vh] w-full scale-150 items-center justify-center">
                 <LoadingCircle />
               </div>
             ) : (
               <>
                 <h4 className="mb-8 text-center text-lg font-bold text-neutral-600 dark:text-neutral-100 md:text-2xl">
-                  Create a{' '}
+                  Update{' '}
                   <span className="rounded-md border border-gray-200 bg-gray-100 px-1 py-0.5 dark:border-neutral-700 dark:bg-neutral-800">
                     Reminder
                   </span>
@@ -126,6 +125,7 @@ const CreateReminder = ({ afterCreate }: Props) => {
                         id="datetime"
                         type="datetime-local"
                         {...register('datetime')}
+                        defaultValue={'2024-08-06T12:00'}
                         className="block w-full rounded-md border-gray-300 bg-transparent text-primary shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-lg"
                       />
                       {formState.errors.datetime && (
@@ -172,7 +172,7 @@ const CreateReminder = ({ afterCreate }: Props) => {
                       className="w-full rounded-md border border-black bg-black px-4 py-2 text-sm text-white dark:bg-white dark:text-black"
                       disabled={formState.isSubmitting}
                     >
-                      Create Reminder
+                      Update Reminder
                     </button>
                   </form>
                 </div>
@@ -185,4 +185,4 @@ const CreateReminder = ({ afterCreate }: Props) => {
   )
 }
 
-export default CreateReminder
+export default EditReminder
