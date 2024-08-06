@@ -12,6 +12,9 @@
 </p>
 <br/>
 
+## Note
+ - Supabase can go in sleep mode if DB is not used for a week, so if you see any error, please contact the team to wake it up.
+
 ## Features
 
 - ⚡️ Next.js 14 (App Router)
