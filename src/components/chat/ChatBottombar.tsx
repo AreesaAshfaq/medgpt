@@ -80,9 +80,9 @@ export default function ChatBottombar({
             onKeyDown={handleKeyPress}
             onChange={handleInputChange}
             name="message"
-            placeholder="Aa"
-            className="flex w-full resize-none items-center overflow-hidden rounded-full border bg-background"
-          ></Textarea>
+            placeholder="Type a message..."
+            className="flex min-h-[20px] w-full resize-none items-center overflow-hidden rounded-full border bg-background"
+          />
         </motion.div>
 
         {message.trim() ? (

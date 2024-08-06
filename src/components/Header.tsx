@@ -20,11 +20,11 @@ const debounce = (func: Function, delay: number) => {
   }
 }
 
-const MotionDiv = dynamic(
+export const MotionDiv = dynamic(
   () => import('framer-motion').then((mod) => mod.motion.div),
   { ssr: false },
 )
-const MotionButton = dynamic(
+export const MotionButton = dynamic(
   () => import('framer-motion').then((mod) => mod.motion.button),
   { ssr: false },
 )

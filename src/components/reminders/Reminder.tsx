@@ -1,16 +1,12 @@
 'use client'
 import React from 'react'
-import {
-  GlowingStarsBackgroundCard,
-  GlowingStarsTitle,
-  GlowingStarsDescription,
-} from '../ui/glowing-stars'
 import { Reminder as IReminder } from './RemindersGroup'
 import { format, parseISO } from 'date-fns'
-import { Trash } from 'lucide-react'
+import { Edit2Icon, Trash } from 'lucide-react'
 import { toast } from 'sonner'
 import { cookies } from 'next/headers'
 import { createBrowserClient, createServerClient } from '@/utils/supabase'
+import { MotionDiv, MotionButton } from '../Header'
 
 type Props = {
   reminder: IReminder
@@ -86,26 +82,43 @@ const Reminder = ({ reminder, afterDelete }: Props) => {
   }
 
   return (
-    <>
-      <div className="flex items-center justify-center py-20 antialiased md:w-96">
-        <GlowingStarsBackgroundCard>
-          <GlowingStarsTitle>{reminder.title}</GlowingStarsTitle>
-          <div className="flex items-end justify-between">
-            <GlowingStarsDescription>
-              {line1}
-              <br />
-              {line2}
-            </GlowingStarsDescription>{' '}
-            <button
-              onClick={deleteReminder}
-              className="ml-12 flex h-10 w-10 items-center justify-center rounded-full bg-destructive"
+    <MotionDiv className="relative block w-full overflow-hidden rounded-lg border border-gray-300 p-4 shadow-sm sm:p-6 lg:p-8">
+      <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
+
+      <div className="sm:flex sm:justify-between sm:gap-4">
+        <div>
+          <h3 className="text-lg font-bold text-primary sm:text-xl">
+            {reminder.title}
+          </h3>
+
+          <div className="flex gap-2 py-2">
+            <MotionButton
+              className="flex gap-2 rounded-full bg-primary px-4 py-2 text-primary-foreground transition duration-300 hover:border-primary hover:bg-accent hover:text-primary hover:shadow-lg"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             >
-              <Trash />
-            </button>
+              <Edit2Icon className="h-5 w-5" />
+              Edit
+            </MotionButton>
+            <MotionButton
+              className="flex gap-2 rounded-full bg-primary px-4 py-2 text-primary-foreground transition duration-300 hover:border-primary hover:bg-accent hover:text-primary hover:shadow-lg"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <Trash className="h-5 w-5" />
+              Delete
+            </MotionButton>
           </div>
-        </GlowingStarsBackgroundCard>
+        </div>
       </div>
-    </>
+
+      <dl className="mt-6 flex gap-4 sm:gap-6">
+        <div className="flex flex-col">
+          <dd className="text-xs text-primary">{line1}</dd>
+          <dt className="text-sm font-medium text-primary">{line2}</dt>
+        </div>
+      </dl>
+    </MotionDiv>
   )
 }
 
