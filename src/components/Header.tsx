@@ -5,20 +5,7 @@ import dynamic from 'next/dynamic'
 import { Home, Settings, Menu, X, Moon, Sun, Brain } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { createBrowserClient } from '@/utils/supabase'
-
-const debounce = (func: Function, delay: number) => {
-  let timeoutId: NodeJS.Timeout | null = null
-
-  return (...args: any[]) => {
-    if (timeoutId) {
-      clearTimeout(timeoutId)
-    }
-
-    timeoutId = setTimeout(() => {
-      func(...args)
-    }, delay)
-  }
-}
+import { debounce } from '@/utils/helper'
 
 export const MotionDiv = dynamic(
   () => import('framer-motion').then((mod) => mod.motion.div),
