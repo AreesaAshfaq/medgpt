@@ -6,7 +6,10 @@ import { createServerClient } from '@/utils/supabase'
 export default function Login({
   searchParams,
 }: {
-  searchParams: { message: string }
+  searchParams: {
+    message?: string
+    code?: string
+  }
 }) {
   const signIn = async (formData: FormData) => {
     'use server'
@@ -56,7 +59,7 @@ export default function Login({
     <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600">
       <Link
         href="/"
-        className="absolute left-8 top-8 flex items-center rounded-full bg-white px-4 py-2 text-sm text-gray-800 shadow-md transition-all hover:bg-gray-100"
+        className="absolute left-8 top-8 flex items-center rounded-full bg-primary px-4 py-2 text-sm text-primary-foreground shadow-md transition-all "
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -75,15 +78,20 @@ export default function Login({
         Back
       </Link>
 
-      <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-2xl">
-        <h2 className="mb-6 text-center text-3xl font-bold text-gray-800">Welcome</h2>
+      <div className="w-full max-w-md rounded-lg bg-primary p-8 shadow-2xl">
+        <h2 className="mb-6 text-center text-3xl font-bold text-primary-foreground">
+          Welcome
+        </h2>
         <form className="space-y-6" action={signIn}>
           <div>
-            <label className="block text-sm font-medium text-gray-700" htmlFor="email">
+            <label
+              className="block text-sm font-medium text-primary-foreground"
+              htmlFor="email"
+            >
               Email
             </label>
             <input
-              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
+              className="mt-1 block w-full rounded-md border border-gray-300 bg-primary px-3 py-2 text-primary-foreground shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
               name="email"
               type="email"
               placeholder="you@example.com"
@@ -91,11 +99,14 @@ export default function Login({
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700" htmlFor="password">
+            <label
+              className="block text-sm font-medium text-primary-foreground"
+              htmlFor="password"
+            >
               Password
             </label>
             <input
-              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
+              className="mt-1 block w-full rounded-md border border-gray-300 bg-primary px-3 py-2 text-primary-foreground shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
               type="password"
               name="password"
               placeholder="••••••••"
@@ -116,6 +127,12 @@ export default function Login({
             </button>
           </div>
         </form>
+
+        {searchParams?.code && (
+          <p className="mt-4 rounded-md bg-emerald-100 p-4 text-center text-sm text-emerald-700">
+            We have verified your email. Please sign in.
+          </p>
+        )}
         {searchParams?.message && (
           <p className="mt-4 rounded-md bg-red-100 p-4 text-center text-sm text-red-700">
             {searchParams.message}

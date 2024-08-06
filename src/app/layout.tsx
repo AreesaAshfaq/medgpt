@@ -4,9 +4,9 @@ import NextTopLoader from 'nextjs-toploader'
 import './globals.css'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import ReactQueryProvider from '@/providers/ReactQueryProvider'
-import { SidebarMenu } from '@/components/Sidebar'
 import { Toaster } from '@/components/ui/sonner'
 import useAuth from '@/hooks/useAuth'
+import { AuthHeader } from '@/components/Header'
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -42,16 +42,8 @@ export default async function RootLayout({
         >
           <ReactQueryProvider>
             <Toaster />
-            <div className="flex">
-              {user ? (
-                <div className="hidden  sm:block">
-                  <SidebarMenu />
-                </div>
-              ) : (
-                <></>
-              )}
-              <main className="w-full ">{children}</main>
-            </div>
+            {user ? <AuthHeader /> : <></>}
+            <main className="w-full ">{children}</main>
             <ReactQueryDevtools initialIsOpen={false} />
           </ReactQueryProvider>
         </ThemeProvider>
