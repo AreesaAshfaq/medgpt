@@ -1,107 +1,71 @@
-<h1 align="center">⚡ MEDGPT ⚡</h1>
+<!-- PROJECT TITLE -->
+  <h1 align="center">MedGPT</h1>
+ <div id="header" align="center">
+</div>
+<h2 align="center">
+ Description
+</h2>
+   MedGPT is an AI-powered tool that provides fast and accurate second opinions for stroke and breast cancer identification. By analyzing brain scans and patient questionnaires, proposed framework ensures reliable validation of patient conditions. Introduced system give real-time evaluation of health issues with 24/7 mental health and rehab support. Presented system have Reminders section for sufferer to take timely appointments and medicine. State-of-the-art MRI-based stroke detection model leverages cutting-edge AI technology to accurately identify stroke indicators. System with Real time assessment of patient in user-friendly manner with 24/7 support. Framework that analyzes hybrid input of brain scans and patient questionnaires improving patient outcomes and precision. Ensuring rapid and reliable assessments to aid in critical care decisions. 
+   
+## Table of Contents
 
-<p align="center">
-   An AI Tool to detect Stroke Detection and provide ongoing support using Falcon AI.
-</p>
+<details>
+<summary>MedGPT</summary>
+  
+- [Application Description](#application-description)
+- [Table of Contents](#table-of-contents)
+- [Contributing](#contributing)
+- [Authors](#authors)
+- [License](#license)
 
-<p align="center">
-  <a href="#features"><strong>Features</strong></a> ·
-  <a href="#clone-and-run-locally"><strong>Clone and run locally</strong></a> ·
-  <a href="#documentation"><strong>Documentation</strong></a> ·
-  <a href="#feedback-and-issues"><strong>Feedback and issues</strong></a>
-</p>
-<br/>
+</details>
 
-## Note
- - Supabase can go in sleep mode if DB is not used for a week, so if you see any error, please contact the team to wake it up.
+## TRY the prototype
+[MedGPT](https://medgpt-ai-stars.vercel.app/)
+
+
+## Technology Stack
+
+| Technology | Description                 |
+| ---------- | --------------------------- |
+| TensorFlow      | Machine Learning Framework |
+| Python     | Programming Language        |
+| Flask      | Web Framework               |
+| Docker     | Containerization            |
+| Typescript |  A programming language and core technology of the Web.|
+| Next 14 | Modern React Framework for Server Side Rendering Web Framework|
+| Tailwind CSS | A utility-first CSS framework for rapidly building custom designs. |
+| Supabase | Open Source Firebase Alternative for Authentication & Database. |
+
 
 ## Features
 
-- ⚡️ Next.js 14 (App Router)
-- 💚 Supabase w/ supabase-ssr - Works across the entire [Next.js](https://nextjs.org) stack (App Router, Pages Router, Client, Server, Middleware, It just works!)
-- ⚛️ React 18
-- ⛑ TypeScript
-- 📦 [pnpm](https://pnpm.io/) - Fast, disk space efficient package manager
-- 🎨 [Tailwind](https://tailwindcss.com/)
-- 🔌 [shadcn/ui](https://ui.shadcn.com/) - Beautifully designed components that you can copy and paste into your apps.
-- 🧪 Jest w/SWC + React Testing Library - Unit tests for all of your code.
-- 🎛️ [MSW](https://mswjs.io/)v2 - Intercept requests inside your tests (set up for testing only)
-- 🪝[TanStackQuery](https://tanstack.com/query/v5)v5 - The best way to fetch data on the client
-- 📏 ESLint — To find and fix problems in your code
-- 💖 Prettier — Code Formatter for consistent style
-- 🐶 Husky — For running scripts before committing
-- 🚫 lint-staged — Run ESLint and Prettier against staged Git files
-- 👷 Github Actions — Run Type Checks, Tests, and Linters on Pull Requests
-- 🗂 Path Mapping — Import components or images using the `@` prefix
-- ⚪⚫ Dark mode - Toggle theme modes with [next-themes](https://github.com/pacocoursey/next-themes)
-- ✨ Next Top Loader - Render a pleasent top loader on navigation with [nextjs-toploader](https://github.com/TheSGJ/nextjs-toploader)
-- 🔋 Lots Extras - Next Bundle Analyzer, Vercel Analytics, Vercel Geist Font
+- Real-time Diagnostic Assistance:
+MedGPT analyzes brain scans and patient questionnaires to provide fast and accurate second opinions for stroke and cancer diagnoses.
 
-## Clone and run locally
+- Focused on Stroke Detection:
+In its first phase, MedGPT specializes in stroke detection, ensuring rapid and reliable assessments critical for patient care.
 
-1. You'll first need a Supabase project which can be made [via the Supabase dashboard](https://database.new)
+- Future Expansion:
+MedGPT aims to expand its capabilities to include autonomous diagnoses for various medical conditions, advancing the speed and accuracy of medical diagnostics.
 
-2. Create a Next.js app using the Supabase Starter template npx command
+- Cross-platform Compatibility:
+MedGPT is designed to work across various platforms, including smartphones, tablets, computers, and medical imaging systems, ensuring accessibility in diverse healthcare environments.
+  
 
-   ```bash
-   pnpm create next-app -e https://github.com/itxtalal/medgpt
-   # or
-   npx create-next-app -e https://github.com/itxtalal/medgpt
-   ```
 
-3. Use `cd` to change into the app's directory
 
-   ```bash
-   cd name-of-new-app
-   ```
+## Authors
 
-4. Rename `.env.local.example` to `.env.local` and update the following:
+| Name           | Link                                      |
+| -------------- | ----------------------------------------- |
+| Muhammad Talal Jamil | [GitHub](https://github.com/itxtalal) |
+| Ehtisham Khan | [GitHub](https://github.com/name) |
+| Areesa Ashfaq | [GitHub](https://github.com/name) |
+| Sandra Ashipala | [GitHub](https://github.com/sandramsc) |
+| Caner Akturk | [GitHub](https://github.com/name) |
 
-   ```
-   NEXT_PUBLIC_SUPABASE_URL=[INSERT SUPABASE PROJECT URL]
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=[INSERT SUPABASE PROJECT API ANON KEY]
-   ```
-
-   Both `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` can be found in [your Supabase project's API settings](https://app.supabase.com/project/_/settings/api)
-
-5. You can now run the Next.js local development server:
-
-   ```bash
-   pnpm run dev
-   ```
-
-   The starter kit should now be running on [localhost:3000](http://localhost:3000/).
-
-> Check out [the docs for Local Development](https://supabase.com/docs/guides/getting-started/local-development) to also run Supabase locally.
-
-# Documentation
-
-### Requirements
-
-- Node.js >= 18.17.0
-- pnpm 8
-
-### Scripts
-
-- `pnpm dev` — Starts the application in development mode at `http://localhost:3000`.
-- `pnpm build` — Creates an optimized production build of your application.
-- `pnpm start` — Starts the application in production mode.
-- `pnpm type-check` — Validate code using TypeScript compiler.
-- `pnpm lint` — Runs ESLint for all files in the `src` directory.
-- `pnpm format-check` — Runs Prettier and checks if any files have formatting issues.
-- `pnpm format` — Runs Prettier and formats files.
-- `pnpm test` — Runs all the jest tests in the project.
-- `pnpm test:ci` — Runs all the jest tests in the project, Jest will assume it is running in a CI environment.
-- `pnpm analyze` — Builds the project and opens the bundle analyzer.
-
-### Switch to Yarn/npm
-
-This starter uses pnpm by default, but this choice is yours. If you'd like to switch to Yarn/npm, delete the `pnpm-lock.yaml` file, install the dependencies with Yarn/npm, change the CI workflow, and Husky Git hooks to use Yarn/npm commands.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for more information.
-
-## Feedback and issues
-
-Please file feedback and issues [here](https://github.com/itxtalal/medgpt/issues).
+[![GitLicense](https://img.shields.io/badge/License-MIT-lime.svg)](https://github.com/ehtisham8889/medgpt/blob/main/LICENSE)
